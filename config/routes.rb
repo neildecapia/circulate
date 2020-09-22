@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   get "member/history", to: "members#history", as: "member_loan_history"
   get "/member/loans", to: "members#loans", as: "member_loans"
 
+  resources :member_holds, only: [:create]
+
   namespace :volunteer do
     resources :shifts, only: [:index, :new, :create]
     resource :session, only: [:destroy]
